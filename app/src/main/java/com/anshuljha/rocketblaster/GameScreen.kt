@@ -1077,7 +1077,8 @@ fun GameScreen(navController: NavController?, level : Int, mainActivity : MainAc
                     color = Color.Yellow)
             }
 
-            val xpText = remember { mutableStateOf("Remeining enemies : ${10+level-enemiesKilled.value}") }
+            val xpText = remember { mutableStateOf("Remaining enemies : ${10+level-enemiesKilled.value}") }
+            if(enemiesKilled.value<10+level) xpText.value = "Remaining enemies : ${10+level-enemiesKilled.value}"
             if(bossReady.value){
                 xpText.value = "XP : ${currentBoss.value.xp.toInt()}"
             }
